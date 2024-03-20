@@ -1,4 +1,6 @@
-let sales = 123456789;
-let course = "TypeScript";
-let is_Published = true;
-let level;
+function calculateTax(income: number, taxYear = 2022): number {
+  if (taxYear < 2022) return income * 1.2;
+
+  return income * 1.3;
+}
+calculateTax(100);
