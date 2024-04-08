@@ -1,2 +1,9 @@
-let phone = document.getElementById("phone") as HTMLInputElement;
-phone.value;
+function reject(message: string): never {
+  throw new Error(message);
+}
+function processEvents(): never {
+  while (true) {}
+}
+
+processEvents();
+console.log("hello world! 🌍");

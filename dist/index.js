@@ -1,6 +1,7 @@
 "use strict";
-let speed = null;
-let ride = {
-    speed: speed || 30,
-};
+function processEvents() {
+    while (true) { }
+}
+processEvents();
+console.log("hello world! 🌍");
 //# sourceMappingURL=index.js.map
