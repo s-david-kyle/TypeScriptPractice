@@ -21,3 +21,6 @@ type daysOfTheWeek = {
     | "Saturday"
     | "Sunday";
 };
+
+let user = getUser();
+console.log(user?.address?.street);
