@@ -1,9 +1,23 @@
-function reject(message: string): never {
-  throw new Error(message);
-}
-function processEvents(): never {
-  while (true) {}
-}
+type User = {
+  name: string;
+  age: number;
+  occupation?: string;
+};
 
-processEvents();
-console.log("hello world! 🌍");
+type Pet = {
+  motivation: "Fly" | "Swim";
+};
+
+let bird: Pet = { motivation: "Fly" };
+let fish: Pet = { motivation: "Swim" };
+
+type daysOfTheWeek = {
+  day:
+    | "Monday"
+    | "Tuesday"
+    | "Wednesday"
+    | "Thursday"
+    | "Friday"
+    | "Saturday"
+    | "Sunday";
+};
