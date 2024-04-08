@@ -1,11 +1,4 @@
-type Customer = {
-  birthday: Date;
+let speed: number | null = null;
+let ride = {
+  speed: speed || 30,
 };
-
-function getCustomer(id: number): Customer | null | undefined {
-  return id === 0 ? null : { birthday: new Date() };
-}
-
-let customer = getCustomer(0);
-// Optional property acess modifier
-console.log(customer?.birthday);
