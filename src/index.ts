@@ -1,18 +1,31 @@
-abstract class Shape {
-  constructor(public color: string) {}
+// abstract class Calendar {
+//   constructor(public name: string) {}
 
-  abstract render(): void;
+//   abstract addEvent(): void;
+//   abstract removeEvent(): void;
+// }
+interface ICalendar {
+  name: string;
+  addEvent(): void;
+  removeEvent(): void;
 }
 
-class Circle extends Shape {
-  constructor(public radius: number, color: string) {
-    super(color);
-  }
-
-  override render(): void {
-    console.log(`Drawing a circle with radius ${this.radius}`);
-  }
+interface ICloudCalendar extends ICalendar {
+  sync(): void;
 }
 
-let shape = new Circle(20, "red");
-shape.render();
+class GoogleCalendar implements ICloudCalendar {
+  constructor(public name: string) {}
+
+  addEvent() {
+    console.log("GoogleCalendar addEvent");
+  }
+
+  removeEvent() {
+    console.log("GoogleCalendar removeEvent");
+  }
+
+  sync() {
+    console.log("GoogleCalendar sync");
+  }
+}
