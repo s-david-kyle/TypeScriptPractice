@@ -1,26 +1,17 @@
-type User = {
-  name: string;
-  age: number;
-  occupation?: string;
-};
+class Account {
+  id: number;
+  owner: string;
+  balance: number;
 
-type Pet = {
-  motivation: "Fly" | "Swim";
-};
+  constructor(id: number, owner: string, balance: number) {
+    this.id = id;
+    this.owner = owner;
+    this.balance = balance;
+  }
 
-let bird: Pet = { motivation: "Fly" };
-let fish: Pet = { motivation: "Swim" };
+  deposit(amount: number): void {
+    if (amount <= 0) throw new Error("Deposit amount has to be greater than 0");
 
-type daysOfTheWeek = {
-  day:
-    | "Monday"
-    | "Tuesday"
-    | "Wednesday"
-    | "Thursday"
-    | "Friday"
-    | "Saturday"
-    | "Sunday";
-};
-
-let user = getUser();
-console.log(user?.address?.street);
+    this.balance += amount;
+  }
+}
