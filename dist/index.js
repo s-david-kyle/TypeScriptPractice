@@ -14,4 +14,12 @@ class Person {
         console.log("I am talking");
     }
 }
+class Student extends Person {
+    constructor(studentId, firstName, lastName) {
+        super("John", "Doe");
+        this.studentId = studentId;
+        this.firstName = firstName;
+        this.lastName = lastName;
+    }
+}
 //# sourceMappingURL=index.js.map

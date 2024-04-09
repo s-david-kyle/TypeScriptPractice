@@ -13,4 +13,15 @@ class Person {
   }
 }
 
-class Student extends Person {}
+class Student extends Person {
+  constructor(public studentId: number, firstName: string, lastName: string) {
+    super(firstName, lastName);
+  }
+
+  takeTest(): void {
+    console.log("I am taking a test");
+  }
+}
+
+let student = new Student(1, "John", "Doe");
+student.walk();
