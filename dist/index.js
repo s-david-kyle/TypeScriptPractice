@@ -16,10 +16,13 @@ class Person {
 }
 class Student extends Person {
     constructor(studentId, firstName, lastName) {
-        super("John", "Doe");
+        super(firstName, lastName);
         this.studentId = studentId;
-        this.firstName = firstName;
-        this.lastName = lastName;
+    }
+    takeTest() {
+        console.log("I am taking a test");
     }
 }
+let student = new Student(1, "John", "Doe");
+student.walk();
 //# sourceMappingURL=index.js.map
