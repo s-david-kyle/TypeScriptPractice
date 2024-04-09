@@ -1,9 +1,8 @@
 "use strict";
-class KeyValuePair {
-    constructor(key, value) {
-        this.key = key;
-        this.value = value;
+class ArratUtils {
+    static wrapInArray(value) {
+        return [value];
     }
 }
-let pair = new KeyValuePair(1, "First");
+let numbers = ArratUtils.wrapInArray("123");
 //# sourceMappingURL=index.js.map
