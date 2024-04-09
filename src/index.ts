@@ -5,7 +5,7 @@ class Person {
     return this.firstName + " " + this.lastName;
   }
 
-  walk(): void {
+  protected walk(): void {
     console.log("I am walking");
   }
   talk(): void {
@@ -19,6 +19,7 @@ class Student extends Person {
   }
 
   takeTest(): void {
+    this.walk();
     console.log("I am taking a test");
   }
 }
