@@ -1,7 +1,19 @@
-class SeatAssignment {
-  [seatNumber: string]: string;
+class Ride {
+  static activeRides: number = 0;
+
+  start() {
+    Ride.activeRides++;
+  }
+
+  stop() {
+    Ride.activeRides--;
+  }
 }
 
-let seats = new SeatAssignment();
-seats.A1 = "Steve";
-seats["A2"] = "Bob";
+let ride1 = new Ride();
+ride1.start();
+
+let ride2 = new Ride();
+ride1.start();
+
+console.log(Ride.activeRides);
