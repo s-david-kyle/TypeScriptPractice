@@ -1,23 +1,16 @@
-class Ride {
-  private static _activeRides: number = 0;
+class Person {
+  constructor(public firstName: string, public lastName: string) {}
 
-  start() {
-    Ride._activeRides++;
+  get fullName() {
+    return "${this.firstName} ${this.lastName}";
   }
 
-  stop() {
-    Ride._activeRides--;
+  walk(): void {
+    console.log("I am walking");
   }
-
-  static get activeRides() {
-    return Ride._activeRides;
+  talk(): void {
+    console.log("I am talking");
   }
 }
 
-let ride1 = new Ride();
-ride1.start();
-
-let ride2 = new Ride();
-ride1.start();
-
-console.log(Ride.activeRides);
+class Student extends Person {}
