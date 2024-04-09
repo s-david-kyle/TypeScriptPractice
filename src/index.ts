@@ -12,10 +12,20 @@ class Account {
 
     this._balance += amount;
   }
+
+  get balance(): number {
+    return this._balance;
+  }
+  set balance(value: number) {
+    this._balance += value;
+  }
 }
 
 let account = new Account(1, "John Doe", 0);
+account.balance = 100;
 
 account.deposit(100);
 
 console.log(account instanceof Account);
+
+console.log(account.balance);
