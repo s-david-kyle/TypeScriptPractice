@@ -3,7 +3,7 @@ interface Product {
   price: number;
 }
 
-class Store<T> {
+class Store<T extends Product> {
   protected products: T[] = [];
 
   addProduct(product: T) {
@@ -13,26 +13,31 @@ class Store<T> {
   getProducts(): T[] {
     return this.products;
   }
-}
 
-class CompressibleStore<T> extends Store<T> {
-  override addProduct(product: T) {
-    console.log("Compressing data...");
-    super.addProduct(product);
+  find(property: keyof T, value: unknown): T | undefined {
+    return this.products.find((product) => product[property] === value);
   }
 }
 
-class SearchableStore<T extends { name: string }> extends Store<T> {
-  find(name: string): T | undefined {
-    return this.products.find((product) => product.name === name);
-  }
-}
+// class CompressibleStore<T> extends Store<T> {
+//   override addProduct(product: T) {
+//     console.log("Compressing data...");
+//     super.addProduct(product);
+//   }
+// }
 
-class ProductStore extends Store<Product> {
-  filterByCategory(category: string): Product[] {
-    return [];
-  }
-}
+// class SearchableStore<T extends { name: string }> extends Store<T> {
+//    find(name: string): T | undefined {
+//     return this.products.find((product) => product.name === name);
+//   }
+// }
+
+// class ProductStore extends Store<Product> {
+//   filterByCategory(category: string): Product[] {
+//     return [];
+//   }
+// }
 
 let store = new Store<Product>();
 store.addProduct({ name: "Apple", price: 5 });
+store.find("name", "Apple");
