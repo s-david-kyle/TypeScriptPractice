@@ -1,11 +1,32 @@
-class Person {
-  constructor(public name: string) {}
+interface Product {
+  name: string;
+  price: number;
 }
 
-class Customer extends Person {}
+class Store<T> {
+  protected products: T[] = [];
 
-function echo<T extends Person>(value: T): T {
-  return value;
+  addProduct(product: T) {
+    this.products.push(product);
+  }
+
+  getProducts(): T[] {
+    return this.products;
+  }
 }
 
-echo({ name: "Taro" });
+class CompressibleStore<T> extends Store<T> {
+  override addProduct(product: T) {
+    console.log("Compressing data...");
+    super.addProduct(product);
+  }
+}
+
+class SearchableStore<T extends { name: string }> extends Store<T> {
+  find(name: string): T | undefined {
+    return this.products.find((product) => product.name === name);
+  }
+}
+
+let store = new Store<Product>();
+store.addProduct({ name: "Apple", price: 5 });
