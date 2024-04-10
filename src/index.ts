@@ -3,6 +3,10 @@ interface Product {
   price: number;
 }
 
+type ReadOnlyProduct = {
+  readonly [K in keyof Product]: Product[K];
+};
+
 class Store<T extends Product> {
   protected products: T[] = [];
 
