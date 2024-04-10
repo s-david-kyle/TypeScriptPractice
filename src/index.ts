@@ -28,5 +28,11 @@ class SearchableStore<T extends { name: string }> extends Store<T> {
   }
 }
 
+class ProductStore extends Store<Product> {
+  filterByCategory(category: string): Product[] {
+    return [];
+  }
+}
+
 let store = new Store<Product>();
 store.addProduct({ name: "Apple", price: 5 });
