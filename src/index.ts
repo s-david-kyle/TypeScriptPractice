@@ -1,19 +1,11 @@
-interface Result<T> {
-  data: T | null;
-  error: string | null;
+class Person {
+  constructor(public name: string) {}
 }
 
-function fetch<T>(url: string): Result<T> {
-  return { data: null, error: null };
+class Customer extends Person {}
+
+function echo<T extends Person>(value: T): T {
+  return value;
 }
 
-interface User {
-  name: string;
-}
-
-interface Product {
-  title: string;
-}
-
-let result = fetch<User>("url");
-result.data?.name;
+echo({ name: "Taro" });
