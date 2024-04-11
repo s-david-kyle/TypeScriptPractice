@@ -3,8 +3,8 @@ interface Product {
   price: number;
 }
 
-type ReadOnlyProduct = {
-  readonly [K in keyof Product]: Product[K];
+type ReadOnlyProduct<T> = {
+  readonly [K in keyof T]: T[K];
 };
 
 class Store<T extends Product> {
@@ -22,6 +22,9 @@ class Store<T extends Product> {
     return this.products.find((product) => product[property] === value);
   }
 }
+
+let product: ReadOnlyProduct<Product> = { name: "Apple", price: 5 };
+//product.name = "Banana";
 
 // class CompressibleStore<T> extends Store<T> {
 //   override addProduct(product: T) {
