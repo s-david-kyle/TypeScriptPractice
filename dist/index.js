@@ -7,9 +7,9 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 };
 function Log(target, methodName, descriptor) {
     const original = descriptor.value;
-    descriptor.value = function (message) {
+    descriptor.value = function (...args) {
         console.log("Before");
-        original.call(this, message);
+        original.call(this, ...args);
         console.log("After");
     };
 }
