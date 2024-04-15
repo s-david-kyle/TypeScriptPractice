@@ -1,19 +1,22 @@
-function Log(target: any, methodName: string, descriptor: PropertyDescriptor) {
-  const original = descriptor.value as Function;
-
-  descriptor.value = function (...args: any) {
-    console.log("Before");
-    original.call(this, ...args);
-    console.log("After");
+function Capitalize(
+  target: any,
+  methodName: string,
+  descriptor: PropertyDescriptor
+) {
+  const original = descriptor.get;
+  descriptor.get = function () {
+    const result = original?.call(this);
+    return typeof result === "string" ? result.toUpperCase() : result;
   };
 }
 
 class Person {
-  @Log
-  say(message: string) {
-    console.log("Person says " + message);
+  constructor(public firstName: string, public lastName: string) {}
+  @Capitalize
+  get fullName() {
+    return `${this.firstName} ${this.lastName}`;
   }
 }
 
-let p = new Person();
-p.say("Hello");
+let person = new Person("John", "Doe");
+console.log(person.fullName); // JOHN DOE
