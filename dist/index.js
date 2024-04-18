@@ -1,6 +1,4 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-const shapes_1 = require("./shapes");
-const circle = new shapes_1.Circle(10);
-console.log(circle.radius);
+import { Circle } from "./shapes";
+const c = new Circle(10);
+console.log(c.radius);
 //# sourceMappingURL=index.js.map
