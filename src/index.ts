@@ -1,4 +1,3 @@
-import { calculateTax } from "./tax";
+import * as _ from "lodash";
 
-const taxValue = calculateTax(100);
-console.log(taxValue);
+_.clone([1, 2, 3]);
